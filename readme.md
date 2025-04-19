@@ -162,7 +162,6 @@ Here's how NLP helps:
 
 ---
 
-Perfect — let’s break all of that down step by step in a **simple, easy-to-understand** way, with real-world examples.
 
 ---
 
@@ -310,9 +309,6 @@ If you're building or training a relation extraction model, here are best practi
 
 4. **Ensemble Methods**  
    → Use multiple models and combine their answers to improve accuracy.
-
----
-Awesome — now let’s go **deeper** into why these basic NLP concepts are **essential**, especially for **relation extraction**, and how they’re used in **complex scenarios**. I’ll also give you some **advanced examples**, and recommend the best books from top authors to study NLP in detail.
 
 ---
 
