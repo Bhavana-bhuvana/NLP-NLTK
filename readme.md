@@ -428,7 +428,7 @@ Here are **top NLP books** (with focus on real-world and relation extraction too
 
 ---
 
-## 🔗 Where This All Leads: Relation Extraction Pipeline
+##  Where This All Leads: Relation Extraction Pipeline
 
 Let’s now map these concepts into the steps of a real **Relation Extraction System**:
 
@@ -451,5 +451,4 @@ Let’s now map these concepts into the steps of a real **Relation Extraction Sy
 
 ---
 
-Want me to build an example pipeline from scratch for you using a sentence of your choice? Or show how a model like BERT would extract relations?
 
