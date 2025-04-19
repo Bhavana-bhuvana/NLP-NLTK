@@ -450,5 +450,174 @@ Let’s now map these concepts into the steps of a real **Relation Extraction Sy
 - [**HuggingFace Transformers**](https://huggingface.co) — Powerful models for RE like BERT, RoBERTa.
 
 ---
+Great move! If you want to get familiar with [**DBpedia SPARQL**](https://dbpedia.org/sparql), you’re basically learning how to **query structured knowledge from Wikipedia** using a special query language called **SPARQL** (like SQL, but for knowledge graphs).
+
+Let me walk you through everything you need to **get hands-on, step by step**, from zero to writing real queries.
+
+---
+
+## What is DBpedia?
+
+**DBpedia** is a knowledge graph — a structured database extracted from Wikipedia. It represents **entities (like people, places, organizations)** and their **relationships**.
+
+Example:  
+> Barack Obama → bornPlace → Honolulu
+
+---
+
+##  What is SPARQL?
+
+**SPARQL** (pronounced "sparkle") is a query language used to get data from RDF-based sources like DBpedia. It's like SQL, but instead of tables, you're querying **triples**:
+```
+Subject — Predicate — Object
+```
+
+Example triple:
+```
+<Barack_Obama> <dbo:birthPlace> <Honolulu>
+```
+
+---
+
+##  How to Use the DBpedia SPARQL Endpoint
+
+Go here: [https://dbpedia.org/sparql](https://dbpedia.org/sparql)
+
+Steps:
+1. Type your SPARQL query in the textbox.
+2. Click “Run Query”.
+3. Results will appear in table or raw RDF/XML form.
+
+---
+
+##  Basic Query Structure (Template)
+
+```sparql
+SELECT ?subject ?predicate ?object
+WHERE {
+  ?subject ?predicate ?object
+}
+LIMIT 10
+```
+
+This will return 10 random triples from DBpedia.
+
+---
+
+##  Practical Examples (Get Familiar Fast)
+
+### 1. **Get all people born in Paris**
+```sparql
+SELECT ?person
+WHERE {
+  ?person dbo:birthPlace dbr:Paris .
+}
+LIMIT 20
+```
+
+- `dbo:birthPlace` → Property from DBpedia ontology.
+- `dbr:Paris` → "Paris" resource (from DBpedia resource namespace).
+
+---
+
+### 2. **Get birthdate of Barack Obama**
+```sparql
+SELECT ?birthDate
+WHERE {
+  dbr:Barack_Obama dbo:birthDate ?birthDate .
+}
+```
+
+---
+
+### 3. **Get name and birthdate of people born in New York**
+```sparql
+SELECT ?person ?name ?birthDate
+WHERE {
+  ?person dbo:birthPlace dbr:New_York_City ;
+          foaf:name ?name ;
+          dbo:birthDate ?birthDate .
+}
+LIMIT 10
+```
+
+Note the use of `;` to chain properties on the same subject.
+
+---
+
+### 4. **Find movies directed by Christopher Nolan**
+```sparql
+SELECT ?movie ?label
+WHERE {
+  ?movie dbo:director dbr:Christopher_Nolan ;
+         rdfs:label ?label .
+  FILTER (lang(?label) = "en")
+}
+LIMIT 10
+```
+
+---
+
+### 5. **Find countries with population over 100 million**
+```sparql
+SELECT ?country ?name ?population
+WHERE {
+  ?country rdf:type dbo:Country ;
+           rdfs:label ?name ;
+           dbo:populationTotal ?population .
+  FILTER(?population > 100000000 && lang(?name) = "en")
+}
+LIMIT 10
+```
+
+---
+
+##  Key Prefixes in DBpedia SPARQL
+
+You can use these at the start of your query to clean up URLs:
+
+```sparql
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+```
+
+Example:
+```sparql
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+SELECT ?spouse
+WHERE {
+  dbr:Barack_Obama dbo:spouse ?spouse .
+}
+```
+
+---
+
+## Tips for Getting Familiar Fast
+
+1. **Start small** – Query simple facts (birthplace, birthdate).
+2. **Use DBpedia's Lookup Tool** to find correct entity URIs:  
+   → [https://lookup.dbpedia.org](https://lookup.dbpedia.org)
+3. **Explore the ontology**:  
+   → [https://dbpedia.org/ontology/](https://dbpedia.org/ontology/)
+4. **Use the "Explore" button** on [https://dbpedia.org](https://dbpedia.org) to visually browse entities and properties.
+5. **Use LIMIT 10 or 20** to avoid being overwhelmed by too much data.
+
+---
+
+##  Bonus: Good Tutorials & Tools
+
+- **W3C SPARQL tutorial**:  
+  [https://www.w3.org/TR/rdf-sparql-query/](https://www.w3.org/TR/rdf-sparql-query/)
+- **DBpedia Spotlight** (Named Entity Linking):  
+  [https://www.dbpedia-spotlight.org/demo/](https://www.dbpedia-spotlight.org/demo/)
+- **YASGUI SPARQL Editor**:  
+  [https://yasgui.triply.cc/](https://yasgui.triply.cc/)
+
+---
+
 
 
