@@ -3,9 +3,9 @@ article :https://medium.com/@andreasherman/different-ways-of-doing-relation-extr
 ---
 
 ###  Overview of Relation Extraction Methods
-According to Andreas Herman's article, there are several approaches to Relation Extraction
+According to Andreas Herman's article, there are several approaches to Relation Extraction
 
-1. **Rule-based RE**:Utilizes handcrafted patterns and regular expressions to identify relationshipsWhile precise, this method requires significant manual effort and may struggle with complex sentence structures
+1. **Rule-based RE**:Utilizes handcrafted patterns and regular expressions to identify relationships While precise, this method requires significant manual effort and may struggle with complex sentence structures
 
 2. **Weakly Supervised RE**:Employs partially labeled data or heuristic rules to train models, reducing the need for extensive labeled datasets
 
@@ -37,7 +37,7 @@ article :https://medium.com/@andreasherman/different-ways-of-doing-relation-extr
 
 ---
 
-### ⚠ Understanding False Positives and Related Metrics
+###  Understanding False Positives and Related Metrics
 
 In the context of Relation Extraction, evaluating model performance involves understanding various metrics:
 
@@ -47,8 +47,8 @@ In the context of Relation Extraction, evaluating model performance involves und
 
 - **False Negative (FN)** Missed relationship.
 
-- **True Negative (TN)** Correctly identified non-relationship.
-These metrics contribute to calculatin:
+- **True Negative (TN)** Correctly identified non-relationship.
+These metrics contribute to calculatin:
 
 - **Precision** The proportion of true positive relationships among all identified relationship.
 
